@@ -4,9 +4,9 @@ class Score:
         items = data.split(',')
         self._number = int(items[0])
         self._name = items[1]
-        self._kor = float(items[2])
-        self._eng = float(items[3])
-        self._math = float(items[4])
+        self._kor = int(items[2])
+        self._eng = int(items[3])
+        self._math = int(items[4])
 
     @property
     def number(self):

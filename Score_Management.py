@@ -28,7 +28,7 @@ class Score_Management_System:
             result = result + str(int(item.eng)) + ","
             result = result + str(int(item.math)) + ","
             result = result + str(int(item.total)) + ","
-            result = result + str(float(item.avg)) + "\n"
+            result = result + str(round(float(item.avg),2)) + "\n"
         return result.strip()
 
     def sort(self, order_key="reg", order_way="asc"):
@@ -43,3 +43,9 @@ class Score_Management_System:
 
         result = self._make_scores_string(sorted_scores)
         return result
+
+    def write(self, file_name, order_key="reg", order_way="asc"):
+        with open(file_name, 'wt', encoding="utf-8") as fw:
+            result = self.sort(order_key, order_way)
+            fw.write(result)
+        
